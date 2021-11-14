@@ -16,7 +16,17 @@ function StreetState() {
     var day_information = {};
     var cars_in_the_street = Math.random() * 50;
     for (let i = 0; i < cars_in_the_street; i++) {
-        day_information[i] = {"start_date": Date()};
+        var dt = new Date();
+
+        final_date = (`${
+            (dt.getMonth()+1).toString().padStart(2, '0')}-${
+            dt.getDate().toString().padStart(2, '0')}-${
+            dt.getFullYear().toString().padStart(4, '0')}T${
+            dt.getHours().toString().padStart(2, '0')}:${
+            dt.getMinutes().toString().padStart(2, '0')}:${
+            dt.getSeconds().toString().padStart(2, '0')}`
+        );
+        day_information[i] = {"start_date": final_date};
     }
     return day_information;
 }
